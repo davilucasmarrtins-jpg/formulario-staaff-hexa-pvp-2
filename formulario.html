@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Staff Hexa RP</title>
+    <style>
+        /* Reset básico */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1e90ff;
+            font-size: 2.2em;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #1e90ff;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .radio-group {
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            margin-right: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 30px;
+            background: #1e90ff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1c86ee;
+        }
+
+        /* Mensagem de sucesso */
+        .success-message {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-message h2 {
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+
+        .success-message p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="formContainer">
+        <h1>Formulário Staff Hexa RP</h1>
+        <form id="staffForm">
+            <label for="nome">1. Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="idade">2. Idade:</label>
+            <input type="number" id="idade" name="idade" required>
+
+            <label for="discord">3. Qual seu ID do Discord:</label>
+            <input type="text" id="discord" name="discord" required>
+
+            <label>4. Você consegue conviver bem em grupo? Se socializa fácil e rápido?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="convive" value="Sim" required> Sim</label>
+                <label><input type="radio" name="convive" value="Não"> Não</label>
+            </div>
+
+            <label>5. Você consegue gravar suas advertências?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="advertencias" value="Sim" required> Sim</label>
+                <label><input type="radio" name="advertencias" value="Não"> Não</label>
+            </div>
+
+            <label for="experiencia">6. Você tem experiência atuando como staff em servidores de PVP? Se sim, há quanto tempo?</label>
+            <textarea id="experiencia" name="experiencia" rows="3"></textarea>
+
+            <label for="intencao">7. Qual sua intenção como membro da Equipe Staff do Hexa RP?</label>
+            <textarea id="intencao" name="intencao" rows="3"></textarea>
+
+            <label for="outroservidor">8. Você já foi staff de algum outro servidor? Se sim, qual servidor e qual cargo?</label>
+            <textarea id="outroservidor" name="outroservidor" rows="3"></textarea>
+
+            <label>9. Qual é a sua disponibilidade de carga horária para desempenhar a função de Staff em nosso servidor?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="disponibilidade" value="Madrugada: 00:00 até 06:00" required> Madrugada: 00:00 até 06:00</label><br>
+                <label><input type="radio" name="disponibilidade" value="Manhã: 06:00 até 13:00"> Manhã: 06:00 até 13:00</label><br>
+                <label><input type="radio" name="disponibilidade" value="Tarde: 13:00 até 19:00"> Tarde: 13:00 até 19:00</label><br>
+                <label><input type="radio" name="disponibilidade" value="Noite: 19:00 até 00:00"> Noite: 19:00 até 00:00</label><br>
+                <label><input type="radio" name="disponibilidade" value="Outro"> Outro</label>
+            </div>
+
+            <button type="submit">Enviar Formulário</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('staffForm');
+        const container = document.getElementById('formContainer');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Mostra mensagem de sucesso
+            container.innerHTML = `
+                <div class="success-message">
+                    <h2>Formulário Enviado!</h2>
+                    <p>Obrigado por se inscrever na equipe Staff do Hexa RP! 🎮<br>
+                    Suas respostas foram registradas com sucesso.</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
